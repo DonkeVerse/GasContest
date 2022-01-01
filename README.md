@@ -1,4 +1,4 @@
-# Gas Contest
+# Gas Contest from [donkeverse.com](www.donkeverse.com)
 
 Can you improve the gas efficiency of minting DonkeVerse NFTs? If so, you may get a prize! We've set up this repository to get you started. Head over to our [discord](https://discord.gg/CbH7ywUc) in #dev-talks to discuss!
 
@@ -7,7 +7,7 @@ install everything with `npm install`
 
 ## step two
 
-You will need to open `node_modules/openzeppelin/contracts/token/ERC721/ERC721.sol`
+You will need to open `node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol`
 
 and comment out or delete lines 281-284
 
