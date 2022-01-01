@@ -3,7 +3,13 @@
 Can you improve the gas efficiency of minting DonkeVerse NFTs? If so, you may get a prize! We've set up this repository to get you started. Head over to our [discord](https://discord.gg/CbH7ywUc) in #dev-talks to discuss!
 
 ## step one
-install everything with `npm install`
+clone this repository and install everything with 
+
+```
+git clone https://github.com/DonkeVerse/GasContest.git
+cd GasContest
+npm install
+```
 
 ## step two
 
