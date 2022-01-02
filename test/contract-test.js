@@ -31,14 +31,20 @@ describe("GasContest", function () {
     });
 
     it("should allow whitelisted users to mint if they pay enough ether", async function () {
-      console.log(addr1.address);
       const signature1 = await signAddress(signingWallet, addr1.address);
-      expect(
-        await GasContest.connect(addr1).publicMint(signature1, {
+      await expect(
+        GasContest.connect(addr1).publicMint(signature1, {
           value: ethers.utils.parseEther("0.06"),
         })
-      );
+      ).to.not.be.reverted;
       expect(await GasContest.ownerOf(1)).to.be.equal(addr1.address);
+
+      await expect(
+        GasContest.connect(addr1).publicMint(signature1, {
+          value: ethers.utils.parseEther("0.06"),
+        })
+      ).to.not.be.reverted;
+      expect(await GasContest.ownerOf(2)).to.be.equal(addr1.address);
     });
   });
 });
