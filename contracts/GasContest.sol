@@ -25,7 +25,7 @@ contract GasContest is ERC721, Ownable {
 
     function publicMint(bytes calldata _signature) external payable {
         uint256 _tokenSupply = tokenSupply; // uint256 private tokenSupply = 1;
-        require(_tokenSupply <= 7777, "max supply"); // because 7778 - 1 = 7777
+        require(_tokenSupply < 7778, "max supply"); // because 7778 - 1 = 7777
         require(
             publicMintingAddress ==
                 keccak256(
@@ -53,22 +53,10 @@ contract GasContest is ERC721, Ownable {
         override
         returns (string memory)
     {
-        require(_tokenId < 7777, "invalid id");
-        return
-            string(
-                abi.encodePacked(
-                    "www.example.com/metadata/",
-                    _tokenId.toString(),
-                    ".json"
-                )
-            );
+        return "placeholder.com/metadata.json"
     }
 
     function totalSupply() external view returns (uint256) {
         return tokenSupply - 1; // token supply is 1 when nothing has been minted
-    }
-
-    function withdraw() external onlyOwner {
-        payable(msg.sender).transfer(address(this).balance);
     }
 }
