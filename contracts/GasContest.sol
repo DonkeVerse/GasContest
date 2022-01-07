@@ -36,6 +36,10 @@ contract GasContest is ERC721, Ownable {
                 ).recover(_signature),
             "not allowed"
         );
+
+        // if you don't care about per-wallet mints, then you can 
+        // erase the next two lines. Otherwise, you need both.
+        require(msg.sender == tx.origin);
         require(ERC721._balances[msg.sender] < 2, "too many");
         require(msg.value == 0.06 ether, "wrong price");
 
